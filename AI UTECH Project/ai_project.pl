@@ -35,7 +35,7 @@ savelocation(C):- assert(high_risk_area(C)),nl,write('Location:'),write(C),write
  mainmenu:-
     new(D,dialog('Diagnostics System')),send(D,append,new(label)),
     send(D,append,new(Name, text_item(name))),
-    send(D,append,new(Celcius, text_item(celcius))),
+    send(D,append,new(Celsius, text_item(celsius))),
     send(D,append,new(Age, text_item(age))),
     send(D,append,new(Sex, menu(sex,marked))),
     send(D,append,new(Asthma,menu('Have asthma',marked))),
@@ -53,19 +53,19 @@ savelocation(C):- assert(high_risk_area(C)),nl,write('Location:'),write(C),write
     send(Sex, append, female),       send(Sex, append, male),
 
     send(Age, type, int),
-    send(Celcius, type, int),
+    send(Celsius, type, int),
 
     send(D,append,new(Location, text_item(location))),
 
     send(D,append,button(accept,message(@prolog,save_main,   Name?selection, Fever?selection, Asthma?selection,
                                         Fatigueness?selection, Drycough?selection,
                                         Diabetes?selection , Sex?selection,
-                                        Location?selection,   Celcius?selection))),
+                                        Location?selection,   Celsius?selection))),
 
     send(D,open).
 
 
-save_main(Name,Fever,Asthma,Fatigueness,Drycough,Diabetes,Sex,Location,Celcius):-
+save_main(Name,Fever,Asthma,Fatigueness,Drycough,Diabetes,Sex,Location,Celsius):-
 
         new(A,dialog('Dianosis of Results')),
         send(A,append,new(Lbl1234,label)),send(Lbl1234,append,'Person Name :'),
@@ -76,9 +76,9 @@ save_main(Name,Fever,Asthma,Fatigueness,Drycough,Diabetes,Sex,Location,Celcius):
         send(A,append,new(Lbl4,label)), send(Lbl4,append,Sex),
 
 
-        Temperature is (Celcius*(9/5))+32,
+        Temperature is (Celsius*(9/5))+32,
         (Temperature >=100.4 -> Tempval is 1; Tempval is 0),
-        send(A,append,new(Lbl511,label)), send(Lbl511,append,'Temperature in farenheit : '),
+        send(A,append,new(Lbl511,label)), send(Lbl511,append,'Temperature in Fahrenheit : '),
         send(A,append,new(Lbl512,label)), send(Lbl512,append,Temperature),
 
         (Fever == 'yes' -> Fevervalue is 1;Fevervalue is 0),
