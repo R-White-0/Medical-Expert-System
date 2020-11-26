@@ -23,7 +23,15 @@ menu:-
     send(M,open).
 
 
- displaystats:- stat(TC,CD),
+alert:- stat(TC,CD),
+        %If the system tested 5 or more patients positive for COVID-19 then an alert will be displayed
+        CD >=5 -> new(H,dialog('ALERT!')),
+        send(H,append,new(Lbl69,label)),send(Lbl69,append,'THERE IS A SPIKE IN PERSONS HAVING OR PRONE TO HAVE COVID-19, System is dialling 119. Please alert other authorities Thank you!'),
+        send(H,append,new(Lbl54,label)),send(Lbl54,append,'Number of persons tested today: '),
+        send(H,append,new(Lbl33,label)),   send(Lbl33,append,TC),
+        send(H,open).
+
+displaystats:- stat(TC,CD),
                 TC >=1 -> Percentage is (CD/TC)*100,
                 new(F,dialog('Statistics')),
                 send(F,append,new(Lbl79,label)),send(Lbl79,append,'Number of persons tested overall: '),
@@ -37,7 +45,7 @@ menu:-
                 send(F,append,new(Lbl43,label)),   send(Lbl43,append,Percentage),
                 send(F,open);
                 new(G,dialog('Statistics')),
-                send(G,append,new(Lbl49,label)),send(Lbl49,append,'Please Diagnose atleast 1 Patient before statistics can exist in the system!!!! Zero Patients are Diagnosed'),
+                send(G,append,new(Lbl49,label)),send(Lbl49,append,'Please Diagnose atleast 1 Patient before statistics can exist in t                he system!!!! Zero Patients are Diagnosed'),
                 send(G,open).
 
 
@@ -126,8 +134,10 @@ save_main(Name,Fever,Asthma,Fatigueness,Drycough,Diabetes,Sex,Location,Celsius):
         send(Lbl15,append,'Fortunately, you are not at risk for the Corona virus'),
         send(Lbl15,append,'\n\nNo action required by MOH'),Rval is 0),
         updatestats(Rval),
-        send(A,open).
+        send(A,open),
+        alert().
 
 
     updatestats(Val):- stat(TC,DC),Newtot is TC + 1, Newhigh is DC + Val,retractall(stat(_,_)),
     assert(stat(Newtot,Newhigh)).
+
