@@ -2,8 +2,8 @@
 * [Introduction](#Introduction)
 * [ES](#ES)
 * [Technologies](#Technologies)
-* [Setup](#Setup)
 * [Project-File](#Project-File)
+* [Setup](#Setup)
 * [Status](#Status)
 
 ## Introduction 
@@ -22,14 +22,15 @@ project is created with:
 * Prolog
 * Using a Knowledge base
 
+## Project-File
+[Moh project file](https://github.com/R-White-0/UTECH-Medical-ES-Project/tree/master/AI%20UTECH%20Project)
+
 ## Setup
 To run this project use the site https://swish.swi-prolog.org/ copy and paste the code there: 
 ```
 ?- menu. -> enter in terminal.
 ```
 
-## Project-File
-[Moh project file]()
 
 
 ## Status
