@@ -19,6 +19,7 @@ of the human providing the content.
 ## Technologies
 project is created with:
 * Prolog
+* Using a Knowledge base
 
 ## Setup
 To run this project use the site https://swish.swi-prolog.org/ copy and paste the code there: 
