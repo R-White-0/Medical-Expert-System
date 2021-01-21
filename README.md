@@ -23,7 +23,8 @@ project is created with:
 * Using a Knowledge base
 
 ## Project-File
-[Moh project file](https://github.com/R-White-0/UTECH-Medical-ES-Project/tree/master/AI%20UTECH%20Project)
+This is the only file you need to run. -> 
+[Moh project file](https://github.com/R-White-0/UTECH-Medical-ES-Project/blob/master/AI%20UTECH%20Project/moh.pl)
 
 ## Setup
 To run this project use the site https://swish.swi-prolog.org/ copy and paste the code there: 
