@@ -27,4 +27,4 @@ To run this project use the site https://swish.swi-prolog.org/ copy and paste th
 ```
 
 ## Status
-Ongoing.
+Completed.
